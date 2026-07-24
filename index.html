@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle Juliana Vieira Gomes — Consultoria e Mentoria Acadêmica</title>
+<meta name="description" content="Consultoria e mentoria acadêmica: orientação de TCC, artigos científicos, revisão e normalização ABNT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F1E6;
+    --cream-2:#EFE7D6;
+    --navy:#16233F;
+    --navy-deep:#0D1626;
+    --gold:#B8863E;
+    --gold-light:#D9B776;
+    --text:#1C2333;
+    --muted:#5B6472;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif; margin:0; color:var(--navy);}
+  .script{font-family:'Dancing Script',cursive; color:var(--gold); font-weight:700;}
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  section{padding:88px 0;}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,230,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(22,35,63,0.08);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-name{font-family:'Playfair Display',serif; font-weight:600; font-size:1.05rem; color:var(--navy); text-decoration:none;}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{font-size:0.92rem; text-decoration:none; color:var(--navy); opacity:0.75;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--navy); color:var(--cream); padding:10px 20px; border-radius:30px;
+    text-decoration:none; font-size:0.88rem; font-weight:500; white-space:nowrap;
+  }
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{padding-top:64px; padding-bottom:64px;}
+  .hero .wrap{display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
+  .eyebrow{font-size:0.8rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:14px;}
+  .hero h1{font-size:2.6rem; line-height:1.15; margin-bottom:18px;}
+  .hero p.lede{color:var(--muted); font-size:1.08rem; max-width:46ch; margin-bottom:28px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;}
+  .tag{
+    border:1px solid rgba(22,35,63,0.18); border-radius:30px; padding:7px 16px;
+    font-size:0.82rem; color:var(--navy);
+  }
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:30px;
+    font-weight:600; font-size:0.94rem; text-decoration:none; border:1.5px solid transparent;
+  }
+  .btn-primary{background:var(--gold); color:var(--navy-deep);}
+  .btn-primary:hover{background:var(--gold-light);}
+  .btn-ghost{border-color:var(--navy); color:var(--navy);}
+  .btn-ghost:hover{background:var(--navy); color:var(--cream);}
+
+  .avatar{
+    position:relative; width:100%; aspect-ratio:1/1; max-width:340px; margin:0 auto;
+    border-radius:50%; overflow:hidden; border:5px solid var(--gold);
+    box-shadow:0 18px 40px rgba(22,35,63,0.18);
+  }
+  .avatar-fallback{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:var(--navy); color:var(--gold-light); font-family:'Playfair Display',serif; font-size:4rem;
+  }
+  .avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+
+  @media (max-width:800px){
+    .hero .wrap{grid-template-columns:1fr; text-align:center;}
+    .tags,.btn-row{justify-content:center;}
+    .hero p.lede{margin-left:auto; margin-right:auto;}
+    .avatar{order:-1;}
+  }
+
+  /* SECTION HEADS */
+  .section-head{max-width:60ch; margin-bottom:48px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .divider{width:64px; height:3px; background:var(--gold); border-radius:2px; margin:14px 0 0;}
+  .section-head.center .divider{margin-left:auto; margin-right:auto;}
+  .section-head h2{font-size:2rem;}
+
+  /* SERVICES / PRICING */
+  .bg-alt{background:var(--cream-2);}
+  .services-note{
+    background:#fff; border:1px solid rgba(22,35,63,0.1); border-radius:var(--radius);
+    padding:22px 26px; margin-bottom:40px; font-size:0.95rem; color:var(--muted);
+  }
+  .services-note strong{color:var(--navy);}
+  .price-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px;}
+  .price-card{
+    background:#fff; border-radius:var(--radius); padding:26px 22px;
+    border:1px solid rgba(22,35,63,0.08); transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .price-card:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(22,35,63,0.1);}
+  .price-icon{
+    width:44px; height:44px; border-radius:50%; border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; color:var(--gold);
+  }
+  .price-card h3{font-size:1.05rem; margin-bottom:6px;}
+  .price-value{color:var(--gold); font-weight:600; font-size:0.98rem;}
+  .price-card.hour{background:var(--navy); color:var(--cream);}
+  .price-card.hour h3, .price-card.hour .price-icon{color:var(--gold-light); border-color:var(--gold-light);}
+  .price-card.hour .price-value{color:var(--gold-light);}
+
+  /* HOW IT WORKS */
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;}
+  .step{padding:6px 0;}
+  .step-num{font-family:'Playfair Display',serif; color:var(--gold); font-size:1.6rem; font-weight:700; margin-bottom:8px;}
+  .step h4{font-size:1.05rem; margin-bottom:6px; color:var(--navy);}
+  .step p{color:var(--muted); font-size:0.94rem; margin:0;}
+
+  /* TIMELINE */
+  .timeline{border-left:2px solid rgba(184,134,62,0.4); padding-left:26px; display:flex; flex-direction:column; gap:26px;}
+  .tl-item .tl-date{color:var(--gold); font-weight:600; font-size:0.85rem;}
+  .tl-item h4{font-size:1.05rem; margin:4px 0 2px;}
+  .tl-item p{margin:0; color:var(--muted); font-size:0.92rem;}
+
+  /* PUBLICATIONS */
+  .pub-card{
+    background:#fff; border-radius:var(--radius); padding:22px 24px; border:1px solid rgba(22,35,63,0.08); margin-bottom:14px;
+  }
+  .pub-card h4{font-size:1rem; margin:0 0 6px; color:var(--navy);}
+  .pub-card .meta{font-size:0.85rem; color:var(--muted);}
+  .pub-badge{
+    display:inline-block; margin-top:8px; font-size:0.75rem; color:var(--gold); border:1px solid var(--gold);
+    border-radius:20px; padding:2px 10px;
+  }
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px;}
+  .testi-card{
+    background:var(--navy); color:var(--cream); border-radius:var(--radius); padding:26px 24px;
+  }
+  .testi-card p.quote{font-style:italic; margin:0 0 16px; color:var(--cream-2);}
+  .testi-card .who{font-weight:600; font-size:0.9rem;}
+  .testi-card .who span{display:block; font-weight:400; opacity:0.7; font-size:0.82rem;}
+  .testi-card.placeholder{border:1.5px dashed rgba(246,241,230,0.35); background:transparent; display:flex; align-items:center; justify-content:center; text-align:center; color:rgba(246,241,230,0.6);}
+
+  /* CONTACT / FOOTER */
+  .contact{
+    background:var(--navy-deep); color:var(--cream); border-radius:24px; padding:56px 40px; text-align:center;
+  }
+  .contact h2{color:var(--cream); font-size:1.9rem;}
+  .contact p{color:rgba(246,241,230,0.75); max-width:50ch; margin:14px auto 30px;}
+  .contact .btn-row{justify-content:center;}
+  .contact .btn-ghost{border-color:rgba(246,241,230,0.5); color:var(--cream);}
+  .contact .btn-ghost:hover{background:var(--cream); color:var(--navy);}
+
+  footer{padding:36px 0 48px; text-align:center; font-size:0.85rem; color:var(--muted);}
+  footer a{text-decoration:underline; text-decoration-color:rgba(184,134,62,0.5);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#topo">Michelle Juliana</a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+    </ul>
+    <a class="nav-cta" href="#contato">Fale comigo</a>
+  </div>
+</header>
+
+<section class="hero" id="topo">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Consultoria &amp; Mentoria Acadêmica</div>
+      <h1>Transformo conhecimento em <span class="script">resultados</span>.</h1>
+      <p class="lede">Enfermeira, professora universitária e mestranda em Administração pela UNIR. Acompanho artigos, TCCs, resumos e projetos de pesquisa do tema à defesa.</p>
+      <div class="tags">
+        <span class="tag">Docente Universitária</span>
+        <span class="tag">Mestranda PPGA/UNIR</span>
+        <span class="tag">Parecerista de Periódico</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#servicos">Ver serviços e valores</a>
+        <a class="btn btn-ghost" href="#contato">Fale comigo</a>
+      </div>
+    </div>
+    <div class="avatar">
+      <span class="avatar-fallback">MJ</span>
+      <img src="foto.jpg" alt="Michelle Juliana Vieira Gomes" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Serviços &amp; valores</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="services-note">
+      <strong>Todos os pacotes abaixo incluem:</strong> orientação metodológica (desenho do estudo e estrutura do trabalho), revisão de texto (coerência, coesão, clareza e linguagem científica), normalização ABNT / adequação às normas do periódico, e 2 rodadas de retorno com apontamentos objetivos. Valores variam conforme extensão, complexidade e prazo — solicite seu orçamento.
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-icon">✎</div>
+        <h3>Resumo simples</h3>
+        <div class="price-value">a partir de R$ 150</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">📄</div>
+        <h3>Resumo expandido</h3>
+        <div class="price-value">a partir de R$ 350</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">🔬</div>
+        <h3>Artigo científico</h3>
+        <div class="price-value">a partir de R$ 1.200</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">📊</div>
+        <h3>Projeto de pesquisa</h3>
+        <div class="price-value">a partir de R$ 700</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">🩺</div>
+        <h3>Estudo de caso</h3>
+        <div class="price-value">a partir de R$ 400</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">🌱</div>
+        <h3>Projeto de extensão</h3>
+        <div class="price-value">a partir de R$ 700</div>
+      </div>
+      <div class="price-card">
+        <div class="price-icon">📐</div>
+        <h3>Revisão/adequação ABNT <span style="font-weight:400; color:var(--muted);">(avulsa)</span></h3>
+        <div class="price-value">R$ 15/página · mínimo R$ 80</div>
+      </div>
+      <div class="price-card hour">
+        <div class="price-icon">⏱</div>
+        <h3>Mentoria acadêmica</h3>
+        <div class="price-value">R$ 150/hora</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Como funciona</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Você me conta o que precisa</h4>
+        <p>Tipo de trabalho, tema (ou a falta de um) e prazo — pelo WhatsApp ou e-mail.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Eu retorno com valor e cronograma</h4>
+        <p>Escopo, número de encontros e prazos ficam combinados antes de começar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Trabalhamos juntos</h4>
+        <p>Orientação, revisão e ajustes ABNT — o trabalho é seu, a condução é minha.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Entrega e apoio final</h4>
+        <p>Documento pronto, com apoio extra para apresentação ou defesa se for o caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt" id="trajetoria">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Trajetória</h2>
+      <div class="divider"></div>
+    </div>
+
+    <h3 style="font-size:1.1rem; margin-bottom:18px; color:var(--gold);">Formação</h3>
+    <div class="timeline" style="margin-bottom:48px;">
+      <div class="tl-item"><div class="tl-date">2025 — atual</div><h4>Mestrado em Administração</h4><p>PPGA / UNIR — Porto Velho</p></div>
+      <div class="tl-item"><div class="tl-date">2024 — 2025</div><h4>Esp. Urgência e Emergência</h4><p>UniBF</p></div>
+      <div class="tl-item"><div class="tl-date">2024 — 2025</div><h4>Esp. Docência em Ciências da Saúde</h4><p>UniBF</p></div>
+      <div class="tl-item"><div class="tl-date">2022 — 2023</div><h4>Esp. Gestão em Saúde Pública</h4><p>FAVENI</p></div>
+      <div class="tl-item"><div class="tl-date">2020 — 2021</div><h4>Esp. Auditoria em Enfermagem</h4><p>FAVENI</p></div>
+      <div class="tl-item"><div class="tl-date">2017 — 2020</div><h4>Graduação em Enfermagem</h4><p>FIMCA — Porto Velho</p></div>
+    </div>
+
+    <h3 style="font-size:1.1rem; margin-bottom:18px; color:var(--gold);">Onde já atuei</h3>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-date">2025 — 2026</div><h4>Professora Titular</h4><p>FIMCA — Semiologia, Educação em Saúde, Ensino Clínico Básico e Integrado</p></div>
+      <div class="tl-item"><div class="tl-date">Experiência clínica</div><h4>Enfermeira</h4><p>UBS Nova Samuel — zona rural, RO</p></div>
+      <div class="tl-item"><div class="tl-date">Experiência clínica</div><h4>Enfermeira Auditora Jr</h4><p>UNIMED Operadora de Planos</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="producoes">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Produções científicas</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="pub-card">
+      <h4>Viabilidade Estratégica de Tecnologias Descentralizadas para o Gerenciamento de Resíduos de Serviços de Saúde em Porto Velho</h4>
+      <div class="meta">Scientific Journal ANAP, v.4, p.971–988, 2026</div>
+      <span class="pub-badge">Primeira autora</span>
+    </div>
+    <div class="pub-card">
+      <h4>Prevalência e perfil de suscetibilidade da colonização por Streptococcus do grupo B em gestantes da Amazônia Brasileira</h4>
+      <div class="meta">Revista Brasileira de Saúde Materno Infantil, v.24, e20230063, 2024</div>
+      <span class="pub-badge">Coautora</span>
+    </div>
+    <div class="pub-card">
+      <h4>Perfil epidemiológico de casos de hanseníase no estado de Rondônia: 2005 a 2015</h4>
+      <div class="meta">II Simpósio Interdisciplinar em Saúde de Rondônia, 2017</div>
+      <span class="pub-badge">1º lugar — pôster</span>
+    </div>
+    <div class="pub-card">
+      <h4>A influência crônica dos anti-hipertensivos sobre a resistência à insulina e o risco de pré-diabetes e diabetes em pacientes hipertensos</h4>
+      <div class="meta">V Congresso Brasileiro de Doenças Crônicas, 2026</div>
+      <span class="pub-badge">Menção honrosa</span>
+    </div>
+    <div class="pub-card">
+      <h4>Cuidado de Enfermagem à Pessoa com Tuberculose na Teoria do Alcance de Metas de Imogene King</h4>
+      <div class="meta">I Mostra Científica do Curso de Enfermagem — FIMCA, 2026</div>
+      <span class="pub-badge">Menção honrosa</span>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>O que dizem</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="quote">"Ela me orientou desde a escolha do tema até a formatação final. Consegui publicar no congresso e ainda recebi menção honrosa."</p>
+        <div class="who">Letícia N. Castriani <span>Enfermagem — FIMCA</span></div>
+      </div>
+      <div class="testi-card">
+        <p class="quote">"Não sabia nada de ABNT. Com a orientação dela aprendi a estruturar um resumo expandido do zero e apresentei no congresso nacional."</p>
+        <div class="who">Erikles A. da Silva <span>Enfermagem — FIMCA</span></div>
+      </div>
+      <div class="testi-card placeholder">Seu relato pode estar aqui</div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Vamos conversar?</h2>
+      <p>Me conta o tipo de trabalho, o tema (ou a falta de um) e o prazo — eu retorno com o valor e os próximos passos.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:michellejulianavieira@gmail.com">✉ michellejulianavieira@gmail.com</a>
+        <a class="btn btn-ghost" href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Enf. Michelle Juliana Vieira Gomes · Porto Velho/RO ·
+    <a href="https://lattes.cnpq.br/2273098209630423" target="_blank" rel="noopener">Lattes</a> ·
+    ORCID 0000-0002-1028-9739
+  </div>
+</footer>
+
+</body>
+</html>
